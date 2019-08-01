@@ -1,0 +1,35 @@
+body#gsr.hp.vasq {
+  background: url('https://images.pexels.com/photos/994605/pexels-photo-994605.jpeg?cs=srgb&dl=beach-clouds-daytime-994605.jpg&fm=jpg') no-repeat center;
+  background-size: cover;
+}
+
+div.gb_xe.gb_R.gb_Me.gb_Ee {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+body.signup_wall_prevent_scroll {
+  overflow: auto;
+}
+
+.signup_wall_prevent_scroll div.SiteHeader,
+.signup_wall_prevent_scroll div.LoggedOutFooter,
+.signup_wall_prevent_scroll div.ContentWrapper {
+  filter: none;
+}
+
+body > div:nth-child(7) {
+  display: none;
+}
+
+div#gateway-content {
+  display: none;
+}
+
+div#app > div > div {
+  overflow: auto;
+}
+
+div#app > div > div > div:nth-child(3) {
+  display: none;
+}
