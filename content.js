@@ -3,6 +3,7 @@ let closeButtonIntervalId;
 
 window.onload = () => {
   console.log('window has loaded ...');
+  
   const iframe = document.getElementById('iframeplayer');
   if (iframe) {
     const contentDocument = iframe.contentDocument;
@@ -12,9 +13,7 @@ window.onload = () => {
   }
   
   if (window.location.host === 'www.wsj.com' && window.location.search !== '?mod=rsswn') {
-    console.log('window.host: ', window.location.host);
     window.location.search = 'mod=rsswn';
-    console.log('window.location.search: ', window.location.search);
   }
 
   if (window.location.host === 'www.wsj.com') {
@@ -24,7 +23,7 @@ window.onload = () => {
 
 toggleCloseButton = () => {
   const closeButton = document.querySelector('.close-btn');
-  console.log('closeButton: ', closeButton);
+  
   if (closeButton) {
     closeButton.click();
     clearInterval(closeButtonIntervalId);

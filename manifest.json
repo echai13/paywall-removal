@@ -1,11 +1,11 @@
 {
   "manifest_version": 2,
-  "name": "Custom Google Homepage",
-  "description": "This extension shows a Google Image search result for the current page.",
+  "name": "Paywall Removal",
+  "description": "This extension removes the paywall on certain sites that I visit often",
   "version": "1.0",
   "page_action": {
     "default_popup": "popup.html",
-    "default_title": "My custom google page!"
+    "default_title": "My custom paywall removal options"
   },
   "content_scripts": [
     {
