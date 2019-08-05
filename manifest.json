@@ -5,19 +5,33 @@
   "version": "1.0",
   "page_action": {
     "default_popup": "popup.html",
+    "default_icon": "colorful_lines.png",
     "default_title": "My custom google page!"
   },
   "content_scripts": [
     {
       "matches": [
-        "https://www.google.com/*",
         "https://www.quora.com/*",
         "https://www.nytimes.com/*",
         "http://www1.icdrama.to/*",
-        "https://www.wsj.com/*"
+        "https://www.wsj.com/*",
+        "https://*.medium.com/*"
       ],
       "css": ["main.css"],
       "js": ["content.js"]
     }
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": true
+  },
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "cookies",
+    "<all_urls>",
+    "storage"
   ]
 }
