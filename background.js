@@ -2,18 +2,23 @@ const domainsForClearingCookie = [
   'medium.com',
 ];
 
+const HTTPS = 'https://';
+const HTTP = 'http://';
+
 chrome.webRequest.onCompleted.addListener(function(details) {
   domainsForClearingCookie.forEach(domain => {
     if (details.url.indexOf(domain)) {
       chrome.cookies.getAll({ domain }, (cookies) => {
-        for (let c = 0; c < cookies.length; c++) {
-          const protocol = cookies[c].secure ? 'https://' : 'http://';
-          const { domain, path, name } = cookies[c] || {};
+        
+        cookies.forEach(cookie => {
+          const protocol = cookie.secure ? HTTPS : HTTP;
+          const { domain, path, name } = cookie;
 
           const url = `${protocol}${domain}${path}`;
 
           chrome.cookies.remove({ url, name });
-        }
+        });
+        
       });
     }
   })
