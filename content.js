@@ -6,6 +6,7 @@ const INTERVAL_MILLISECONDS = 1000;
 
 const selectors = {
   MEDIUM: {
+    SVG_CLOSE: 'svg.x-29px_svg__svgIcon-use',
     SMALL_POPUP: 'button.bb',
     LARGE_POPUP: 'body > div:last-child > div > div > div > div:first-child button',
   },
@@ -61,14 +62,26 @@ setIntervalForClosingPopup = () => {
       let smallPopupTimesOfInterval = 0;
       let largePopupTimesOfInterval = 0;
 
-      handleClose(selectors.MEDIUM.SMALL_POPUP, smallPopupTimesOfInterval);
+      const isCloseBtn = () => {
+        const btn = document.querySelector(selectors.MEDIUM.SMALL_POPUP);
+        const closeSvg = document.querySelector(selectors.MEDIUM.SVG_CLOSE);
+
+        return btn.contains(closeSvg);
+      };
+
+      handleClose(selectors.MEDIUM.SMALL_POPUP, smallPopupTimesOfInterval, isCloseBtn);
       handleClose(selectors.MEDIUM.LARGE_POPUP, largePopupTimesOfInterval);
     }, INTERVAL_MILLISECONDS);
   }
 };
 
 // handler for closing sign up wall
-handleClose = (selector, timesOfInterval) => {
+handleClose = (selector, timesOfInterval, isValid = () => {}) => {
+  if (!isValid) {
+    clearInterval(closeButtonIntervalId);
+    return;
+  }
+
   const element = document.querySelector(selector);
 
   timesOfInterval++;
