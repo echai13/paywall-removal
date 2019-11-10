@@ -77,7 +77,7 @@ setIntervalForClosingPopup = () => {
 
 // handler for closing sign up wall
 handleClose = (selector, timesOfInterval, isValid = () => {}) => {
-  if (!isValid) {
+  if (!isValid()) {
     clearInterval(closeButtonIntervalId);
     return;
   }
