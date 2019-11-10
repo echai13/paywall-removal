@@ -6,7 +6,7 @@ const INTERVAL_MILLISECONDS = 1000;
 
 const selectors = {
   MEDIUM: {
-    SMALL_POPUP: 'button.cw.cx',
+    SMALL_POPUP: 'button.bb',
     LARGE_POPUP: 'body > div:last-child > div > div > div > div:first-child button',
   },
   WSJ: {
